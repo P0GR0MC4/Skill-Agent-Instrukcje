@@ -1,0 +1,4 @@
+/* Placeholder styles for Mailer project */
+body { font-family: Arial, sans-serif; }
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+.btn { background: #007bff; color: #fff; padding: 8px 12px; border-radius: 4px; text-decoration: none; }

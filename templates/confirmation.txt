@@ -1,0 +1,9 @@
+Cześć {{ user_name | default('Użytkowniku') }}!
+
+Dziękujemy za rejestrację w systemie Mailer.
+Aby aktywować swoje konto, skopiuj i wklej poniższy link do przeglądarki:
+
+{{ confirmation_url }}
+
+---
+Wiadomość wygenerowana automatycznie. Prosimy na nią nie odpowiadać.

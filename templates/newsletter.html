@@ -1,0 +1,12 @@
+{% extends "base_email.html" %}
+{% block title %}Mailer Newsletter{% endblock %}
+{% block content %}
+<h2 style="color: #2c3e50;">Najnowsze aktualizacje z tego miesiąca</h2>
+<hr style="border: 0; border-top: 1px solid #eeeeee; margin: 20px 0;">
+<div style="color: #555555; line-height: 1.6;">
+    {{ newsletter_content | safe }}
+</div>
+<p style="font-size: 11px; color: #999999; margin-top: 40px;">
+    Jeśli nie chcesz otrzymywać tych wiadomości, <a href="{{ unsubscribe_url }}">wypisz się tutaj</a>.
+</p>
+{% endblock %}

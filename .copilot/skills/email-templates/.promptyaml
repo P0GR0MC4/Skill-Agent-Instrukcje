@@ -1,0 +1,20 @@
+name: email-templates
+description: Skill dedykowany tworzeniu, dziedziczeniu i testowaniu szablonów e-mail (HTML oraz Plain Text)
+topics:
+  - email-templates
+  - jinja2
+  - variable-substitution
+  - template-inheritance
+  - testing
+applyTo:
+  - path: "**/templates/**"
+  - path: "**/*template*.py"
+  - path: "**/test_*template*.py"
+  - path: "**/*.html"
+languageDetection:
+  preferredLanguage: python
+  patterns:
+    - "render_template"
+    - "Jinja2"
+    - "HTML"
+    - "Template"
