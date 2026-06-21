@@ -1,0 +1,15 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.so
+*.dylib
+*.egg-info/
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+.venv/
+venv/
+.env
+
