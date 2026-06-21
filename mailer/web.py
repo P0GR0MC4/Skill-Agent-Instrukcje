@@ -11,14 +11,25 @@ email_sender = EmailSender()
 @app.route("/", methods=["GET"])
 def index():
     subscribers = subscriber_manager.list()
-    return render_template("welcome.html", user_name="Użytkowniku", confirmation_url=url_for("index", _external=True), subscribers=subscribers)
+    return render_template(
+        "welcome.html",
+        user_name="Użytkowniku",
+        confirmation_url=url_for("index", _external=True),
+        subscribers=subscribers,
+    )
 
 
 @app.route("/subscribe", methods=["POST"])
 def subscribe():
     email = request.form.get("email", "").strip()
     if not EmailValidator.validate(email):
-        return render_template("welcome.html", user_name="Użytkowniku", confirmation_url=url_for("index", _external=True), subscribers=subscriber_manager.list(), error="Nieprawidłowy adres e-mail.")
+        return render_template(
+            "welcome.html",
+            user_name="Użytkowniku",
+            confirmation_url=url_for("index", _external=True),
+            subscribers=subscriber_manager.list(),
+            error="Nieprawidłowy adres e-mail.",
+        )
 
     subscriber_manager.add(email)
     return redirect(url_for("index"))
@@ -31,11 +42,23 @@ def send_email():
     body = request.form.get("body", "Hello from Mailer.")
 
     if not EmailValidator.validate(recipient):
-        return render_template("welcome.html", user_name="Użytkowniku", confirmation_url=url_for("index", _external=True), subscribers=subscriber_manager.list(), error="Nieprawidłowy adres odbiorcy.")
+        return render_template(
+            "welcome.html",
+            user_name="Użytkowniku",
+            confirmation_url=url_for("index", _external=True),
+            subscribers=subscriber_manager.list(),
+            error="Nieprawidłowy adres odbiorcy.",
+        )
 
     result = email_sender.send(recipient, subject, body)
     if not result["success"]:
-        return render_template("welcome.html", user_name="Użytkowniku", confirmation_url=url_for("index", _external=True), subscribers=subscriber_manager.list(), error=f"Błąd wysyłki: {result['error']}")
+        return render_template(
+            "welcome.html",
+            user_name="Użytkowniku",
+            confirmation_url=url_for("index", _external=True),
+            subscribers=subscriber_manager.list(),
+            error=f"Błąd wysyłki: {result['error']}",
+        )
 
     return redirect(url_for("index"))
 
